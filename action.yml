@@ -8,9 +8,9 @@ inputs:
     default: "sponsor \U0001F496"
   not-sponsor-label:
     description: >-
-      The label to apply to the issue or pull request if the author is not
-      a sponsor.
-    default: "not a sponsor"
+      The label to apply to the issue or pull request if the author is not a
+      sponsor.
+    default: not a sponsor
 runs:
   using: node12
   main: dist/index.js
