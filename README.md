@@ -1,6 +1,6 @@
 <h1 align="center">💖</h1>
 <h3 align="center">is-sponsor-label-action</h3>
-<p align="center">A GitHub Action that labels issues/PRs if the creator is a sponsor of the owner</p>
+<p align="center">A GitHub Action that labels issues/PRs if the creator is a sponsor of the owner (or not)</p>
 
 ## Usage
 
@@ -25,12 +25,13 @@ jobs:
 
 This will trigger the action when an issue or pull request is opened. You'll need to include the `GITHUB_TOKEN` environment variable!
 
-By default, the label `sponsor` will be applied. If you have a different label you want to use, you can set that:
+By default, the label `sponsor ❤️` will be applied for sponsors and `not a sponsor` if the user is not. If you have a different label you want to use, you can set that:
 
 ```yaml
       - uses: rix1337/is-sponsor-label-action@v1
         with:
-          label: Sponsor Request ❤️
+          sponsor-label: Sponsor Request ❤️
+          not-sponsor-label: Not a sponsor Request 😔
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 ```
@@ -57,4 +58,4 @@ It will then check to see if the creator of the issue/PR is one of the sponsors 
 
 > Note! This query checks to see if the opener is a sponsor of the repository's owning user. This does not cover all cases of sponsorship!
 
-If the opener is a sponsor, the action will then add the `sponsor` label to the issue or pull request.
+If the opener is a sponsor, the action will then add the `sponsor` label to the issue or pull request. If not, the `not a sponsor` label will be applied.
