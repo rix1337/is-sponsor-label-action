@@ -1,12 +1,12 @@
 name: Sponsor or not label
 description: Labels issues and pull requests if the author is a sponsor (or not)
 inputs:
-  sponsor-label:
+  sponsor_label:
     description: >-
       The label to apply to the issue or pull request if the author is a
       sponsor.
     default: "sponsor \U0001F496"
-  not-sponsor-label:
+  not_sponsor_label:
     description: >-
       The label to apply to the issue or pull request if the author is not
       a sponsor.
