@@ -7,7 +7,7 @@
 You can create a `.github/workflows/label-sponsors.yml` file:
 
 ```yaml
-name: Label sponsors
+name: Label sponsor or not
 on:
   pull_request:
     types: [opened]
