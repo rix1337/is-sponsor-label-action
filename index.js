@@ -3,7 +3,8 @@ const { Toolkit } = require('actions-toolkit')
 const getAuthorNodeId = require('./lib/get-author-id')
 const userIsSponsor = require('./lib/user-is-sponsor')
 const createLabel = require('./lib/create-label')
-const addLabel = require('./lib/add-label')
+const addSponsorLabel = require('./lib/add-sponsor-label')
+const addNotASponsorLabel = require('./lib/add-not-a-sponsor-label')
 
 Toolkit.run(async tools => {
   // Get the user id of the submitter
@@ -11,14 +12,14 @@ Toolkit.run(async tools => {
 
   // Check if the user is a sponsor
   const isSponsor = await userIsSponsor(tools, nodeId)
-  if (!isSponsor) {
-    tools.log.debug('Author is not a sponsor! Nothing left to do.')
-    return
-  }
-
+  
   // Add the label
   await createLabel(tools)
-  await addLabel(tools)
+  if (isSponsor) {
+      await addSponsorLabel(tools)
+  } else {
+    await addNotASponsorLabel(tools)
+  }
   tools.log.success('Label successfully applied. Have a nice day!')
 }, {
   event: [
