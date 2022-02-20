@@ -30,8 +30,8 @@ By default, the label `sponsor ❤️` will be applied for sponsors and `not a s
 ```yaml
       - uses: rix1337/is-sponsor-label-action@v1
         with:
-          sponsor-label: Sponsor Request ❤️
-          not-sponsor-label: Not a sponsor Request 😔
+          sponsor_label: Sponsor Request ❤️
+          not_sponsor_label: Not a sponsor Request 😔
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 ```
