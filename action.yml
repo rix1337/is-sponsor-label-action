@@ -1,5 +1,5 @@
-name: Sponsor Labels
-description: Labels issues and pull requests if the author is a sponsor
+name: Sponsor or not label
+description: Labels issues and pull requests if the author is a sponsor (or not)
 inputs:
   sponsor-label:
     description: >-
