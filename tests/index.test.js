@@ -26,6 +26,7 @@ describe('is-sponsor-label', () => {
         data: {
           user: {
             sponsorshipsAsMaintainer: {
+              pageInfo: { hasNexPage: false },
               nodes: [{
                 sponsor: {
                   id: tools.context.payload.issue.user.node_id
