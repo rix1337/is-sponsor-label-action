@@ -1,5 +1,6 @@
 require('dotenv').config()
 const { Toolkit } = require('actions-toolkit')
+const getAuthorName = require('./lib/get-author-name')
 const getAuthorNodeId = require('./lib/get-author-id')
 const userIsSponsor = require('./lib/user-is-sponsor')
 const createSponsorLabel = require('./lib/create-sponsor-label')
@@ -9,10 +10,11 @@ const addNotASponsorLabel = require('./lib/add-not-a-sponsor-label')
 
 Toolkit.run(async tools => {
   // Get the user id of the submitter
+  const name = getAuthorName(tools.context.payload)
   const nodeId = getAuthorNodeId(tools.context.payload)
 
   // Check if the user is a sponsor
-  const isSponsor = await userIsSponsor(tools, nodeId)
+  const isSponsor = await userIsSponsor(tools, name, nodeId)
   
   // Add the label
   if (isSponsor) {
