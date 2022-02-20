@@ -2,7 +2,8 @@ require('dotenv').config()
 const { Toolkit } = require('actions-toolkit')
 const getAuthorNodeId = require('./lib/get-author-id')
 const userIsSponsor = require('./lib/user-is-sponsor')
-const createLabel = require('./lib/create-label')
+const createSponsorLabel = require('./lib/create-sponsor-label')
+const createNotASponsorLabel = require('./lib/create-not-a-sponsor-label')
 const addSponsorLabel = require('./lib/add-sponsor-label')
 const addNotASponsorLabel = require('./lib/add-not-a-sponsor-label')
 
@@ -14,10 +15,11 @@ Toolkit.run(async tools => {
   const isSponsor = await userIsSponsor(tools, nodeId)
   
   // Add the label
-  await createLabel(tools)
   if (isSponsor) {
-      await addSponsorLabel(tools)
+    await createSponsorLabel(tools)  
+    await addSponsorLabel(tools)
   } else {
+    await createNotASponsorLabel(tools)  
     await addNotASponsorLabel(tools)
   }
   tools.log.success('Label successfully applied. Have a nice day!')
