@@ -1,15 +1,6 @@
 <h1 align="center">💖</h1>
 <h3 align="center">is-sponsor-label-action</h3>
 <p align="center">A GitHub Action that labels issues/PRs if the creator is a sponsor of the owner</p>
-<p align="center"><a href="https://github.com/JasonEtco/is-sponsor-label-action"><img alt="GitHub Actions status" src="https://github.com/JasonEtco/is-sponsor-label-action/workflows/Node%20CI/badge.svg"></a> <a href="https://codecov.io/gh/JasonEtco/is-sponsor-label-action/"><img src="https://badgen.now.sh/codecov/c/github/JasonEtco/is-sponsor-label-action" alt="Codecov"></a></p>
-
-## Examples
-
-Imagine Alice sponsors Bob through GitHub Sponsors, and Bob owns a public repo, which includes this `sponsor-label` action. Then, when Alice opens an issue or PR on that repo, a bot will automatically add a `sponsor 💖` label.
-
-![Screenshot of an issue created by a sponsor, with the sponsor label added](screenshot.png)
-
-You can see the above example here: https://github.com/devonzuegel/highly-exporter/issues/4
 
 ## Usage
 
